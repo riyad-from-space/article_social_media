@@ -13,13 +13,31 @@ class SelectionTopic extends StatefulWidget {
 
 class _SelectionTopicState extends State<SelectionTopic> {
   final List<String> topicsList = [
-    'UI Design', 'UX Design', 'Blog Design', 'Topic 4', 'Topic 5',
-    'Visual Design', 'Motion', 'Graphic', '3d', 'Icon',
-    'News', 'Business', 'Sports', 'Fashion', 'Technology',
-    'Health', 'Shoping', 'Music', 'Video', 'Recipe', 'Fun', 'Entertainment', 'Creative',
+    'UI Design',
+    'UX Design',
+    'Blog Design',
+    'Topic 4',
+    'Topic 5',
+    'Visual Design',
+    'Motion',
+    'Graphic',
+    '3d',
+    'Icon',
+    'News',
+    'Business',
+    'Sports',
+    'Fashion',
+    'Technology',
+    'Health',
+    'Shoping',
+    'Music',
+    'Video',
+    'Recipe',
+    'Fun',
+    'Entertainment',
   ];
   List<int> selectedTopicsIndex = [];
-  bool istopic=false;
+  bool istopic = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +65,9 @@ class _SelectionTopicState extends State<SelectionTopic> {
                 ),
               ],
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Text(
               'Pick Topic to Start Reading.....',
               style: KTextStyle.subtitle1.copyWith(
@@ -57,17 +77,23 @@ class _SelectionTopicState extends State<SelectionTopic> {
                 color: const Color(0xff17131B),
               ),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Wrap(
               spacing: 10,
               runSpacing: 20,
               children: [
                 ...List.generate(topicsList.length, (index) {
                   return Container(
-                    padding: const EdgeInsets.only(left: 15, right: 15, top: 8, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 15, top: 8, bottom: 8),
                     decoration: BoxDecoration(
-                      color: selectedTopicsIndex.contains(index) ? const Color(0xffF4E300) : const Color(0xffF2F9FB),
-                      border: Border.all(width: 1, color: const Color(0xffD6E5EA)),
+                      color: selectedTopicsIndex.contains(index)
+                          ? const Color(0xffF4E300)
+                          : const Color(0xffF2F9FB),
+                      border:
+                          Border.all(width: 1, color: const Color(0xffD6E5EA)),
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: InkWell(
@@ -78,12 +104,11 @@ class _SelectionTopicState extends State<SelectionTopic> {
                           } else {
                             selectedTopicsIndex.add(index);
                           }
-                          if(selectedTopicsIndex.isNotEmpty){
-                            istopic=true;
-                          }else{
-                            istopic=false;
+                          if (selectedTopicsIndex.isNotEmpty) {
+                            istopic = true;
+                          } else {
+                            istopic = false;
                           }
-
                         });
                       },
                       child: Text(
@@ -100,7 +125,9 @@ class _SelectionTopicState extends State<SelectionTopic> {
                 }),
               ],
             ),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
 
             SubmitButton(submit: istopic)
             // Container(
@@ -108,13 +135,13 @@ class _SelectionTopicState extends State<SelectionTopic> {
             //   width: 290,
             //   decoration: BoxDecoration(
             //     borderRadius: BorderRadius.circular(36),
-              
+
             //   ),
             //   child: ElevatedButton(
             //     style: ElevatedButton.styleFrom(
             //       backgroundColor:  selectedTopicsIndex.isNotEmpty ? const Color(0xffA76FFF) : const Color.fromARGB(255, 201, 176, 240),
             //     ),
-                
+
             //     onPressed: () {
             //       if (selectedTopicsIndex.isNotEmpty) {
             //         Navigator.push(
