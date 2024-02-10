@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:matha_nosto_project/views/global_components/submit_button.dart';
-import 'package:matha_nosto_project/views/screens/topic_screen/login_type.dart';
+import 'package:matha_nosto_project/views/screens/auth/login_email_screen.dart';
+import 'package:matha_nosto_project/views/screens/auth/login_type_screen.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
 
 class SelectionTopic extends StatefulWidget {
@@ -16,12 +17,8 @@ class _SelectionTopicState extends State<SelectionTopic> {
     'UI Design',
     'UX Design',
     'Blog Design',
-<<<<<<< HEAD
     'Animation',
-=======
-    'Topic 17',
->>>>>>> fab08290dd4fee2f0ec0b3c620a8c6dec57408ec
-    'Topic 5',
+    'Games',
     'Visual Design',
     'Motion',
     'Graphic',
@@ -39,6 +36,7 @@ class _SelectionTopicState extends State<SelectionTopic> {
     'Recipe',
     'Fun',
     'Entertainment',
+    'Creative',
   ];
   List<int> selectedTopicsIndex = [];
   bool istopic = false;
@@ -58,13 +56,23 @@ class _SelectionTopicState extends State<SelectionTopic> {
                   height: 40,
                   width: 40,
                 ),
-                Text(
-                  'Log In',
-                  style: KTextStyle.subtitle1.copyWith(
-                    fontFamily: GoogleFonts.openSans().fontFamily,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: const Color(0xffA76FFF),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EmailUsername(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Log In',
+                    style: KTextStyle.subtitle1.copyWith(
+                      fontFamily: GoogleFonts.openSans().fontFamily,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: const Color(0xffA76FFF),
+                    ),
                   ),
                 ),
               ],
@@ -132,47 +140,17 @@ class _SelectionTopicState extends State<SelectionTopic> {
             const SizedBox(
               height: 40,
             ),
-
-            SubmitButton(submit: istopic)
-            // Container(
-            //   height: 46,
-            //   width: 290,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(36),
-
-            //   ),
-            //   child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //       backgroundColor:  selectedTopicsIndex.isNotEmpty ? const Color(0xffA76FFF) : const Color.fromARGB(255, 201, 176, 240),
-            //     ),
-
-            //     onPressed: () {
-            //       if (selectedTopicsIndex.isNotEmpty) {
-            //         Navigator.push(
-            //           context,
-            //           MaterialPageRoute(
-            //             builder: (context) => const OnBoarding(),
-            //           ),
-            //         );
-            //       } else {
-            //         ScaffoldMessenger.of(context).showSnackBar(
-            //           const SnackBar(
-            //             content: Text('Select at least one topic to continue.'),
-            //           ),
-            //         );
-            //       }
-            //     },
-            //     child: Text(
-            //       'Continue',
-            //       style: KTextStyle.subtitle1.copyWith(
-            //         fontFamily: GoogleFonts.openSans().fontFamily,
-            //         fontWeight: FontWeight.w600,
-            //         fontSize: 14,
-            //         color: const Color(0xff17131B),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            SubmitButton(
+              submit: istopic,
+              onsubmit: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OnBoarding(),
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),

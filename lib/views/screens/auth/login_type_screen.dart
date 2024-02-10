@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:matha_nosto_project/views/screens/auth/login_email_screen.dart';
-import 'package:matha_nosto_project/views/screens/topic_screen/component/social_login_button_component.dart';
+import 'package:matha_nosto_project/views/screens/auth/components/social_login_button_component.dart';
 import 'package:matha_nosto_project/views/style/k_colors.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
-
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -39,50 +38,60 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
             const SizedBox(height: 30),
             InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const EmailUsername()), // Use EmailUsername instead of EmailUSername
-                );
-              },
-              child:  SocialLoginButton(
-                background_color: KColor.black,
-                provider_name: "Apple",
-                icon: const Icon(Icons.apple,color: Colors.white,size: 30,),
-              )
-            ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const EmailUsername()), // Use EmailUsername instead of EmailUSername
+                  );
+                },
+                child: SocialLoginButton(
+                  background_color: KColor.black,
+                  provider_name: "Apple",
+                  icon: const Icon(
+                    Icons.apple,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                )),
             const SizedBox(height: 30),
             InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const EmailUsername()), // Use EmailUsername instead of EmailUSername
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const EmailUsername()), // Use EmailUsername instead of EmailUSername
                 );
               },
-              child:  SocialLoginButton(
+              child: SocialLoginButton(
                 background_color: KColor.backgrounforGoogle,
                 provider_name: "Google",
                 icon: const Icon(Icons.apple),
                 isGoogle: true,
                 image: Image.asset("assets/images/Logo (3).png"),
               ),
-              
             ),
             const SizedBox(height: 30),
             InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const EmailUsername()), // Use EmailUsername instead of EmailUSername
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const EmailUsername()), // Use EmailUsername instead of EmailUSername
                 );
               },
-              child:  SocialLoginButton(
+              child: SocialLoginButton(
                 background_color: KColor.backgrounforEmail,
                 provider_name: "Email",
-                icon: const Icon(Icons.email,size: 28,color: Colors.white,),
-                
+                icon: const Icon(
+                  Icons.email,
+                  size: 28,
+                  color: Colors.white,
+                ),
               ),
-             
             ),
             const SizedBox(height: 30),
             Row(
@@ -98,13 +107,31 @@ class _OnBoardingState extends State<OnBoarding> {
                   ),
                 ),
                 const SizedBox(width: 2),
-                Text(
-                  'Log In',
-                  style: KTextStyle.subtitle1.copyWith(
-                    fontFamily: GoogleFonts.openSans().fontFamily,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: const Color(0xffA76FFF),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const EmailUsername()),
+                    );
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EmailUsername()),
+                      );
+                    },
+                    child: Text(
+                      'Log In',
+                      style: KTextStyle.subtitle1.copyWith(
+                        fontFamily: GoogleFonts.openSans().fontFamily,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: const Color(0xffA76FFF),
+                      ),
+                    ),
                   ),
                 ),
               ],

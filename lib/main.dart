@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:matha_nosto_project/views/screens/topic_screen/splash_screen.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -15,10 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         useMaterial3: true,
       ),
-      home: const SplashScreen (),
+      home: const SplashScreen(),
     );
   }
 }

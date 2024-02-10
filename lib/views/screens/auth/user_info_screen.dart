@@ -1,34 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:matha_nosto_project/views/screens/social_media_screens/posts_feed_screen.dart';
+import 'package:matha_nosto_project/views/global_components/back_button.dart';
+import 'package:matha_nosto_project/views/screens/auth/components/headline.dart';
+import 'package:matha_nosto_project/views/screens/social_media_screens/home_screen.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class UserInfo extends StatefulWidget {
+  const UserInfo({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<UserInfo> createState() => _UserInfoState();
 }
 
-class _ProfileState extends State<Profile> {
+class _UserInfoState extends State<UserInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xffD6E5EA)),
-              ),
-              child: const Icon(Icons.arrow_back_ios),
-            ),
-          ),
-        ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const CustomBackButton()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -36,24 +28,9 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Start Your Profile',
-              style: TextStyle(
-                fontFamily: GoogleFonts.openSans().fontFamily,
-                fontWeight: FontWeight.w700,
-                fontSize: 30,
-                color: const Color(0xff17131B),
-              ),
-            ),
-            Text(
-              'This is how you’re displayed in the community',
-              style: TextStyle(
-                fontFamily: GoogleFonts.openSans().fontFamily,
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                color: const Color(0xff5C5D67),
-              ),
-            ),
+            Headline(
+                headline: 'Start Your Profile',
+                sub_headline: 'This is how you’re displayed in community'),
             const SizedBox(height: 40),
             Row(
               children: [
@@ -67,7 +44,7 @@ class _ProfileState extends State<Profile> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: 200, // Adjust the width as needed
+                      width: 200,
                       child: TextFormField(
                         initialValue: 'Adom Shafi',
                         style: TextStyle(

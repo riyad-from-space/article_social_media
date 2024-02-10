@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /*
 Focus: To maintain app wide design consistency all
@@ -14,6 +16,7 @@ Text(segmentTitle,
 style: AppTextStyle.titleStyle.copyWith(color: KColor.red)),
 */
 
+
 class KTextStyle {
   static TextStyle headline1 = const TextStyle(
     fontSize: 36,
@@ -22,10 +25,31 @@ class KTextStyle {
     fontFamily: 'AirbnbCereal',
   );
 
+  
+
   static TextStyle headline2 = const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w400,
     fontFamily: 'AirbnbCereal',
+  );
+  static TextStyle headline =  TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xff17131B),
+  );
+  static TextStyle sub_headline =  TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xff5C5D67),
+  );
+  static TextStyle for_text_field =  TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xffC0C0C9
+),
   );
 
   static TextStyle headline3 = const TextStyle(

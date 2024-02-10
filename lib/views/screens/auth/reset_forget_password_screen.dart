@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:matha_nosto_project/views/global_components/back_button.dart';
+import 'package:matha_nosto_project/views/global_components/submit_button.dart';
+import 'package:matha_nosto_project/views/screens/auth/components/headline.dart';
+import 'package:matha_nosto_project/views/screens/auth/login_password_screen.dart';
 
 import 'package:matha_nosto_project/views/screens/auth/user_info_screen.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
-
-
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -16,7 +18,8 @@ class ResetPassword extends StatefulWidget {
 class _ResetPasswordState extends State<ResetPassword> {
   bool _isContinueButtonEnabled = false;
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
@@ -25,20 +28,10 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xffD6E5EA)),
-              ),
-              child: const Icon(Icons.arrow_back_ios),
-            ),
-          ),
-        ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const CustomBackButton()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -46,24 +39,9 @@ class _ResetPasswordState extends State<ResetPassword> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Reset Password',
-              style: KTextStyle.subtitle1.copyWith(
-                fontFamily: GoogleFonts.openSans().fontFamily,
-                fontWeight: FontWeight.w700,
-                fontSize: 30,
-                color: const Color(0xff17131B),
-              ),
-            ),
-            Text(
-              'Enter your new password',
-              style: KTextStyle.subtitle1.copyWith(
-                fontFamily: GoogleFonts.openSans().fontFamily,
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                color: const Color(0xff5C5D67),
-              ),
-            ),
+            Headline(
+                headline: 'Reset Password',
+                sub_headline: 'Enter your new password'),
             const SizedBox(height: 40),
             TextField(
               controller: _passwordController,
@@ -71,9 +49,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 hintText: 'Your new Password',
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _obscurePassword
-                        ? Icons.visibility
-                        : Icons.visibility_off,
+                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
                   ),
                   onPressed: () {
                     setState(() {
@@ -88,7 +64,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                   _isContinueButtonEnabled =
                       _passwordController.text.isNotEmpty &&
                           _confirmPasswordController.text.isNotEmpty;
-                  print(_isContinueButtonEnabled);
                 });
               },
             ),
@@ -116,45 +91,23 @@ class _ResetPasswordState extends State<ResetPassword> {
                   _isContinueButtonEnabled =
                       _passwordController.text.isNotEmpty &&
                           _confirmPasswordController.text.isNotEmpty;
-                  print(_isContinueButtonEnabled);
                 });
               },
             ),
             const SizedBox(height: 60),
             Center(
-              child: Container(
-                height: 46,
-                width: 290,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(36),
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    alignment: Alignment.center,
-                    backgroundColor: _isContinueButtonEnabled
-                        ? const Color(0xffA76FFF)
-                        : const Color.fromARGB(255, 201, 176, 240),
-                  ),
-                  onPressed: () {
-                    if (_isContinueButtonEnabled) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const  Profile(),
-                        ),
-                      );
-                    }
-                  },
-                  child: Text(
-                    'Continue',
-                    style: KTextStyle.subtitle1.copyWith(
-                      fontFamily: GoogleFonts.openSans().fontFamily,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+              child: SubmitButton(
+                submit: _isContinueButtonEnabled,
+                onsubmit: () {
+                  {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Password(),
+                      ),
+                    );
+                  }
+                },
               ),
             ),
           ],

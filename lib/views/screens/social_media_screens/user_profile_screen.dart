@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matha_nosto_project/views/global_components/back_button.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
 
 class MyProfile extends StatefulWidget {
@@ -35,14 +36,7 @@ class _MyProfileState extends State<MyProfile> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Container(
-            margin:  const EdgeInsets.only(left: 20),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color:  const Color(0xffD6E5EA)),
-            ),
-            child:  const Icon(Icons.arrow_back_ios),
-          ),
+          child: const CustomBackButton()
         ),
         title:  Text(
           '@adom007',
