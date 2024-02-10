@@ -16,7 +16,7 @@ class _SelectionTopicState extends State<SelectionTopic> {
     'UI Design',
     'UX Design',
     'Blog Design',
-    'Topic 14',
+    'Animation',
     'Topic 5',
     'Visual Design',
     'Motion',
