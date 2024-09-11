@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matha_nosto_project/views/screens/social_media_screens/components/bottom_sheet.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
 
 class PostDetails extends StatefulWidget {
@@ -20,17 +21,37 @@ class _PostDetailsState extends State<PostDetails> {
         image: 'assets/images/Ellipse 4.png'),
   ];
   bool isImageToggled = false;
+  int heartCount = 20;
 
-  void toggleImageColor() {
+  void _toggleHeart() {
     setState(() {
+      if (isImageToggled) {
+        heartCount--;
+      } else {
+        heartCount++;
+      }
       isImageToggled = !isImageToggled;
     });
+  }
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+     
+      barrierColor: Colors.black.withOpacity(0.8),
+     
+      
+      context: context,
+     
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const CustomBottomSheet();
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -49,14 +70,19 @@ class _PostDetailsState extends State<PostDetails> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                        height: 44,
-                        width: 44,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: const Color(0xffD6E5EA))),
-                        child: Container(
-        margin: const EdgeInsets.only(left: 5),
-        child: const Icon(Icons.arrow_back_ios,size: 18,color: Color(0xff7E7F88),)),),
+                      height: 44,
+                      width: 44,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0xffD6E5EA))),
+                      child: Container(
+                          margin: const EdgeInsets.only(left: 5),
+                          child: const Icon(
+                            Icons.arrow_back_ios,
+                            size: 18,
+                            color: Color(0xff7E7F88),
+                          )),
+                    ),
                   ),
                 ),
                 Text(
@@ -67,27 +93,113 @@ class _PostDetailsState extends State<PostDetails> {
                     fontSize: 16,
                   ),
                 ),
-                Container(
-                    height: 44,
-                    width: 44,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: const Color(0xffD6E5EA)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/Ellipse 30.png'),
-                          const SizedBox(width: 3),
-                          Image.asset('assets/images/Ellipse 30.png'),
-                          const SizedBox(
-                            width: 3,
-                          ),
-                          Image.asset('assets/images/Ellipse 30.png'),
-                        ],
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return Column(
+                            children: [
+                              Container(
+                                width: 370,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                              ),
+                              Container(
+                                margin:
+                                    const EdgeInsets.fromLTRB(8, 100, 8, 10),
+                                height: 235,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(24),
+                                    color: Colors.white),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 16, 0, 14),
+                                  child: Center(
+                                    child: Column(children: [
+                                      Text('Display Settings',
+                                          style: KTextStyle.bottom_sheet1),
+                                      const SizedBox(height: 14),
+                                      Container(
+                                        height: 1,
+                                        color: const Color(0xffEFEFEF),
+                                      ),
+                                      const SizedBox(height: 14),
+                                      Text('Follow This Author',
+                                          style: KTextStyle.bottom_sheet1),
+                                      const SizedBox(
+                                        height: 14,
+                                      ),
+                                      Container(
+                                        height: 1,
+                                        color: const Color(0xffEFEFEF),
+                                      ),
+                                      const SizedBox(height: 14),
+                                      Text('Block Author',
+                                          style: KTextStyle.bottom_sheet2),
+                                      const SizedBox(
+                                        height: 14,
+                                      ),
+                                      Container(
+                                        height: 1,
+                                        color: const Color(0xffEFEFEF),
+                                      ),
+                                      const SizedBox(height: 14),
+                                      Text('Report This Blog',
+                                          style: KTextStyle.bottom_sheet2),
+                                      const SizedBox(
+                                        height: 14,
+                                      ),
+                                    ]),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 18,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                  height: 58,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      color: Colors.white),
+                                  child: Center(
+                                      child: Text('Cancel',
+                                          style: KTextStyle.bottom_sheet1)),
+                                ),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  child: Container(
+                      height: 44,
+                      width: 44,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: const Color(0xffD6E5EA)),
                       ),
-                    )),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/images/Ellipse 30.png'),
+                            const SizedBox(width: 3),
+                            Image.asset('assets/images/Ellipse 30.png'),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Image.asset('assets/images/Ellipse 30.png'),
+                          ],
+                        ),
+                      )),
+                ),
               ],
             ),
           ),
@@ -115,7 +227,6 @@ class _PostDetailsState extends State<PostDetails> {
                                         height: 66,
                                         width: 66,
                                         fit: BoxFit.cover,
-                                        
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -233,7 +344,7 @@ class _PostDetailsState extends State<PostDetails> {
           ),
         ],
       ),
-       bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             icon: Padding(
@@ -241,20 +352,20 @@ class _PostDetailsState extends State<PostDetails> {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: toggleImageColor,
+                    onTap: _toggleHeart,
                     child: Image.asset(
-                      'assets/images/heart.png',
+                      isImageToggled
+                          ? 'assets/images/Heart (2).png'
+                          : 'assets/images/Heart (1).png',
                       height: 24,
                       width: 24,
-                      color:
-                          isImageToggled ? Colors.red : const Color(0xff5C5D67),
                     ),
                   ),
                   const SizedBox(
                     width: 8,
                   ),
                   Text(
-                    '20',
+                    '$heartCount',
                     style: KTextStyle.subtitle1.copyWith(
                       fontWeight: FontWeight.w600,
                       color: const Color(0xff5C5D67),
@@ -264,19 +375,24 @@ class _PostDetailsState extends State<PostDetails> {
                 ],
               ),
             ),
-            label: 'PostDetails',
+            label: 'react',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/Comments.png'),
-            label: 'Search',
+            icon: GestureDetector(
+              onTap: () {
+                _showBottomSheet();
+              },
+              child: Image.asset('assets/images/Comments.png'),
+            ),
+            label: 'comment',
           ),
           BottomNavigationBarItem(
             icon: Image.asset('assets/images/Share.png'),
-            label: 'Save',
+            label: 'share',
           ),
           BottomNavigationBarItem(
             icon: Image.asset('assets/images/Bookmark.png'),
-            label: 'Settings',
+            label: 'save',
           ),
         ],
         selectedItemColor: Colors.black,

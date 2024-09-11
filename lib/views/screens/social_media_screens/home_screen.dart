@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:matha_nosto_project/views/screens/social_media_screens/user_profile_screen.dart';
 import 'package:matha_nosto_project/views/screens/social_media_screens/post_details_screen.dart';
+import 'package:matha_nosto_project/views/style/k_colors.dart';
 import 'package:matha_nosto_project/views/style/k_text_style.dart';
 
 class Home extends StatefulWidget {
@@ -52,9 +53,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: CustomScrollView(
         slivers: [
+          
           SliverAppBar(
             automaticallyImplyLeading: false,
             backgroundColor: Colors.white,
@@ -86,7 +87,10 @@ class _HomeState extends State<Home> {
                     shape: BoxShape.circle,
                     border: Border.all(color: const Color(0xffD6E5EA)),
                   ),
-                  child: const Icon(Icons.notifications_none_rounded,color: Color(0xff7E7F88),),
+                  child: const Icon(
+                    Icons.notifications_none_rounded,
+                    color: Color(0xff7E7F88),
+                  ),
                 ),
               ],
             ),
@@ -238,7 +242,7 @@ class _HomeState extends State<Home> {
                                                       .copyWith(
                                                     fontWeight: FontWeight.w700,
                                                     color:
-                                                        const Color(0xff17131B),
+                                                       KColor.black,
                                                     fontSize: 12,
                                                   ),
                                                 ),

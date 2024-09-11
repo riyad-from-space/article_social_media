@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:matha_nosto_project/views/global_components/back_button.dart';
 import 'package:matha_nosto_project/views/global_components/submit_button.dart';
 import 'package:matha_nosto_project/views/screens/auth/components/headline.dart';
 import 'package:matha_nosto_project/views/screens/auth/login_password_screen.dart';
 
-import 'package:matha_nosto_project/views/screens/auth/user_info_screen.dart';
-import 'package:matha_nosto_project/views/style/k_text_style.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);

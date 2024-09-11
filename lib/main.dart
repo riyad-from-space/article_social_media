@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:matha_nosto_project/views/screens/topic_screen/splash_screen.dart';
+import 'package:matha_nosto_project/views/screens/social_media_screens/home_screen.dart';
+import 'package:matha_nosto_project/views/screens/social_media_screens/post_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const Home(),
     );
   }
 }

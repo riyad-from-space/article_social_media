@@ -7,6 +7,8 @@ class KColor extends ChangeNotifier {
       Color(0xFF586ED1) /* Color(0xFF01bb7f) */;
   static const Color backgrounforGoogle=Color(0xff18436E);
   static const Color backgrounforEmail=Color(0xffE23F36);
+  static const Color ash=Color(0xff5C5D67);
+  static const Color black=Color(0xff17131B);
   static const Color whiteConst = Colors.white;
   static const Color appThemeColorConst = Color(0xFF586ED1);
   static const Color blackConst = Colors.black;
@@ -137,7 +139,7 @@ class KColor extends ChangeNotifier {
   normal color
   */
 
-  static Color black = Colors.black;
+
   static Color black87 = Colors.black87;
   static Color black38 = Colors.black38;
   static Color black26 = Colors.black26;

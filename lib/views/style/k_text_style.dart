@@ -51,6 +51,27 @@ class KTextStyle {
     color: const Color(0xffC0C0C9
 ),
   );
+  static TextStyle bottom_sheet1 =  TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xff246BFD
+),
+  );
+  static TextStyle bottom_sheet2 =  TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xffFF0000
+),
+  );
+  static TextStyle for_description =  TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: GoogleFonts.openSans().fontFamily,
+    color: const Color(0xff5C5D67
+),
+  );
 
   static TextStyle headline3 = const TextStyle(
     fontSize: 20,
